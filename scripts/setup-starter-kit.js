@@ -204,7 +204,7 @@ pages:
   );
   console.log('2. Customize the content in content/ with your local services');
   console.log('3. Update images and branding in public/ folder');
-  console.log('4. Run "npm run dev" to start development server');
+  console.log('4. Run "pnpm dev" to start development server');
   console.log('5. Follow the DEPLOYMENT-GUIDE.md to deploy your website');
 
   console.log('\n📚 Documentation:');

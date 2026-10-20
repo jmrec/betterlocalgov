@@ -49,7 +49,7 @@
 
 ### **3. Setup Automation**
 
-- ✅ Interactive setup script (`npm run setup`)
+- ✅ Interactive setup script (`pnpm setup`)
 - ✅ Automatic content template generation
 - ✅ Environment file creation
 - ✅ Government information replacement

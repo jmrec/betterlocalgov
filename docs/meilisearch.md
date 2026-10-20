@@ -8,7 +8,7 @@ This guide covers everything needed to run Meilisearch with betterlocalgov — f
 
 - Node.js 18+ (already required by the project)
 - A running Meilisearch instance (local or cloud — see below)
-- Project dependencies installed (`npm install`)
+- Project dependencies installed (`pnpm install`)
 
 ---
 
@@ -92,7 +92,7 @@ Alternatively, use the master key itself as `MEILISEARCH_ADMIN_KEY` during local
 Run the indexing script after your Meilisearch instance is up and your `.env` is configured:
 
 ```bash
-npm run index-content
+pnpm index-content
 ```
 
 The script (`scripts/index-content.mjs`) does the following:
@@ -113,7 +113,7 @@ Meilisearch indexes asynchronously. The task will be processed within seconds; s
 
 ### When to re-run
 
-Re-run `npm run index-content` whenever you:
+Re-run `pnpm index-content` whenever you:
 
 - Add or remove a markdown file under `content/`
 - Edit the title or body of an existing markdown file
@@ -155,7 +155,7 @@ The Meilisearch index is not updated automatically when markdown files change. Y
 **Git pre-commit hook** — add to `.husky/pre-commit` or `.git/hooks/pre-commit`:
 
 ```bash
-npm run index-content
+pnpm index-content
 ```
 
 This ensures the index is refreshed before every commit that might include content changes.
@@ -164,7 +164,7 @@ This ensures the index is refreshed before every commit that might include conte
 
 ```yaml
 - name: Index content
-  run: npm run index-content
+  run: pnpm index-content
   env:
     VITE_MEILISEARCH_HOST: ${{ secrets.VITE_MEILISEARCH_HOST }}
     MEILISEARCH_ADMIN_KEY: ${{ secrets.MEILISEARCH_ADMIN_KEY }}
@@ -176,7 +176,7 @@ The `VITE_MEILISEARCH_SEARCH_KEY` is not needed by the indexing script and can b
 
 ## Troubleshooting
 
-**`ECONNREFUSED` or `fetch failed` when running `npm run index-content`**
+**`ECONNREFUSED` or `fetch failed` when running `pnpm index-content`**
 
 Meilisearch is not running or is not reachable at `VITE_MEILISEARCH_HOST`. Confirm the server is up:
 
@@ -193,7 +193,7 @@ If using Docker, check that the container is running: `docker ps | grep meilisea
 
 **Search page returns no results**
 
-The index is empty or stale. Run `npm run index-content` and wait a few seconds for the indexing task to complete, then search again.
+The index is empty or stale. Run `pnpm index-content` and wait a few seconds for the indexing task to complete, then search again.
 
 **Search page shows a network error in the browser console**
 

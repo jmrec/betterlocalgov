@@ -5,13 +5,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev          # Start development server (localhost:5173)
-npm run build        # TypeScript check + Vite production build
-npm run lint         # Run ESLint
-npm run lint:fix     # Auto-fix ESLint issues
-npm run format       # Format with Prettier
-npm run dev:yaml     # Convert YAML to JSON, then start dev server
-npm run setup        # Interactive setup script for new installations
+pnpm dev             # Start development server (localhost:5173)
+pnpm build           # TypeScript check + Vite production build
+pnpm lint            # Run ESLint
+pnpm lint:fix        # Auto-fix ESLint issues
+pnpm format          # Format with Prettier
+pnpm dev:yaml        # Convert YAML to JSON, then start dev server
+pnpm setup           # Interactive setup script for new installations
 ```
 
 Pre-commit hook runs `lint-staged` automatically (ESLint + Prettier on staged files).

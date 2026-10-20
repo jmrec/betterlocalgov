@@ -91,10 +91,10 @@ Once connected, Vercel will automatically deploy:
 
 ```bash
 # Build the project
-npm run build
+pnpm build
 
 # Install Netlify CLI
-npm install -g netlify-cli
+pnpm add -g netlify-cli
 
 # Deploy
 netlify deploy --prod --dir=dist
@@ -103,7 +103,7 @@ netlify deploy --prod --dir=dist
 #### Automatic Deployment
 
 1. **Connect GitHub repository to Netlify**
-2. **Set build command:** `npm run build`
+2. **Set build command:** `pnpm build`
 3. **Set publish directory:** `dist`
 4. **Add environment variables** in Netlify dashboard
 
@@ -127,15 +127,18 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: npm run build
+        run: pnpm build
         env:
           VITE_GOVERNMENT_NAME: ${{ secrets.GOVERNMENT_NAME }}
           VITE_GOVERNMENT_TYPE: ${{ secrets.GOVERNMENT_TYPE }}
@@ -160,7 +163,7 @@ jobs:
 
 ```bash
 # Build the project
-npm run build
+pnpm build
 
 # Upload dist/ folder to your web server
 # via FTP, cPanel, or hosting provider's file manager
@@ -196,7 +199,7 @@ brew install terraform  # macOS
 
 ```bash
 # 1. Build your application
-npm run build
+pnpm build
 
 # 2. Navigate to terraform directory
 cd terraform
@@ -245,7 +248,7 @@ After making changes:
 
 ```bash
 # 1. Rebuild the application
-npm run build
+pnpm build
 
 # 2. Apply Terraform changes (from terraform directory)
 cd terraform
@@ -395,7 +398,7 @@ VITE_CONTACT_EMAIL=info@your-city.gov.ph
 
 ```bash
 # Analyze bundle size
-npm run build -- --analyze
+pnpm build -- --analyze
 
 # Optimize images
 # Use WebP format when possible
@@ -433,25 +436,27 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run build
+          node-version: '20'
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm build
 
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - run: npm ci
-      - run: npm run build
+          node-version: '20'
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
@@ -468,9 +473,9 @@ jobs:
 
 ```bash
 # Clear cache and reinstall
-rm -rf node_modules package-lock.json
-npm install
-npm run build
+rm -rf node_modules pnpm-lock.yaml
+pnpm install
+pnpm build
 ```
 
 #### Environment Variables Not Loading
@@ -495,7 +500,7 @@ npm run build
 ### Getting Help
 
 1. **Check deployment logs** in your platform dashboard
-2. **Test locally** with production build: `npm run preview`
+2. **Test locally** with production build: `pnpm preview`
 3. **Verify environment variables** are set correctly
 4. **Check network connectivity** and DNS settings
 5. **Contact support** for your hosting platform

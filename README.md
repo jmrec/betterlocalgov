@@ -16,8 +16,8 @@ A modern, multilingual, and accessible website template designed specifically fo
 
 ### Prerequisites
 
-- Node.js 18+
-- npm or yarn
+- Node.js 20+
+- pnpm 12+ (run `corepack enable` to activate the version pinned in `package.json`)
 - Git
 
 ### Installation
@@ -45,15 +45,13 @@ A modern, multilingual, and accessible website template designed specifically fo
 4. **Install dependencies**
 
    ```bash
-   npm install
-   # or
-   yarn install
+   pnpm install
    ```
 
 5. **Run the setup script**
 
    ```bash
-   npm run setup
+   pnpm setup
    ```
 
    This will guide you through configuring your government's information.
@@ -61,9 +59,7 @@ A modern, multilingual, and accessible website template designed specifically fo
 6. **Start development server**
 
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   pnpm dev
    ```
 
 7. **Open your browser**
@@ -97,7 +93,7 @@ A modern, multilingual, and accessible website template designed specifically fo
    git clone https://github.com/YOUR-USERNAME/betterlocalgov.git
    cd betterlocalgov
    git remote add upstream https://github.com/iyanski/betterlocalgov.git
-   npm install
+   pnpm install
    ```
 
    Replace `YOUR-USERNAME` with your GitHub username.
@@ -105,7 +101,7 @@ A modern, multilingual, and accessible website template designed specifically fo
 2. **Configure Your Government** (15 minutes)
 
    ```bash
-   npm run setup
+   pnpm setup
    # Interactive setup guides you through configuration
    ```
 
@@ -146,15 +142,15 @@ A modern, multilingual, and accessible website template designed specifically fo
 
 ### Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint issues
-- `npm run format` - Format code with Prettier
-- `npm run setup` - Run setup script for new installations
-- `npm run convert-yaml` - Convert YAML to JSON
-- `npm run dev:yaml` - Convert YAML and start dev server
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build
+- `pnpm lint` - Run ESLint
+- `pnpm lint:fix` - Fix ESLint issues
+- `pnpm format` - Format code with Prettier
+- `pnpm setup` - Run setup script for new installations
+- `pnpm convert-yaml` - Convert YAML to JSON
+- `pnpm dev:yaml` - Convert YAML and start dev server
 
 ### Project Structure
 
@@ -237,7 +233,7 @@ We welcome contributions from everyone! Whether you're a developer, government o
 3. **Add upstream remote**: `git remote add upstream https://github.com/iyanski/betterlocalgov.git`
 4. **Create a content branch**: `git checkout -b content/update-health-services`
 5. **Edit content files** in `content/`
-6. **Test your changes**: `npm run dev`
+6. **Test your changes**: `pnpm dev`
 7. **Submit a pull request** to the original repository
 
 #### Developers
@@ -247,7 +243,7 @@ We welcome contributions from everyone! Whether you're a developer, government o
 3. **Add upstream remote**: `git remote add upstream https://github.com/iyanski/betterlocalgov.git`
 4. **Create a feature branch**: `git checkout -b feature/new-component`
 5. **Make your changes**
-6. **Run tests**: `npm run lint && npm run build`
+6. **Run tests**: `pnpm lint && pnpm build`
 7. **Submit a pull request** to the original repository
 
 #### Keeping Your Fork Updated

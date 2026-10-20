@@ -119,6 +119,30 @@
   @apply text-base text-gray-700 leading-relaxed relative flex items-start gap-3 font-sans rounded-md mb-5 transition-all duration-200 border border-transparent cursor-pointer items-center;
 }
 
+.markdown-content [data-footnotes] {
+  @apply mt-10 border-t border-gray-200 pt-6;
+}
+
+.markdown-content [data-footnotes] ol {
+  @apply list-decimal space-y-2 pl-6;
+}
+
+.markdown-content [data-footnotes] li {
+  @apply mb-0 pl-1 text-sm leading-relaxed text-gray-600;
+}
+
+.markdown-content [data-footnotes] li::before {
+  content: none;
+}
+
+.markdown-content [data-footnotes] .data-footnote-backref {
+  @apply ml-1 no-underline;
+}
+
+.markdown-content sup a[data-footnote-ref] {
+  @apply ml-0.5 font-semibold no-underline;
+}
+
 /* Sticky table styling */
 .sticky-table {
   min-width: max-content;
